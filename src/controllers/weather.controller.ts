@@ -4,9 +4,8 @@ import { Weather } from "../models/Weather.model";
 import { History } from "../models/History.model";
 import { AuthenticatedRequest } from "../middlewares/auth.middleware";
 
-const API_KEY = process.env.OPENWEATHER_API_KEY!;
-console.log("OpenWeather API Key:", process.env.OPENWEATHER_API_KEY);
-const CACHE_MINUTES = parseInt(process.env.WEATHER_CACHE_MINUTES || "30");
+const API_KEY = "dd406f0fac3ebdd8bf7379803843293b";
+const CACHE_MINUTES = 30;
 
 export const getWeather = async (
   req: AuthenticatedRequest,
@@ -60,7 +59,10 @@ export const getWeather = async (
     if (!weather) {
       res.status(500).json({
         success: false,
-        error: { code: "WEATHER_NOT_FOUND", message: "Weather data not available." },
+        error: {
+          code: "WEATHER_NOT_FOUND",
+          message: "Weather data not available.",
+        },
       });
       return;
     }

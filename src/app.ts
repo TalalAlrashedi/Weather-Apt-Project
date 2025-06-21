@@ -1,9 +1,9 @@
+import dotenv from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
 import authRouter from "./routes/auth.route";
 import weatherRouter from "./routes/weather.route";
 import historyRouter from "./routes/history.route";
-import dotenv from "dotenv";
 dotenv.config();
 const app = express();
 app.use(express.json());
