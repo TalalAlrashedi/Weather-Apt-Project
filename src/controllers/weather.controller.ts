@@ -5,6 +5,7 @@ import { History } from "../models/History.model";
 import { AuthenticatedRequest } from "../middlewares/auth.middleware";
 
 const API_KEY = process.env.OPENWEATHER_API_KEY!;
+console.log("OpenWeather API Key:", process.env.OPENWEATHER_API_KEY);
 const CACHE_MINUTES = parseInt(process.env.WEATHER_CACHE_MINUTES || "30");
 
 export const getWeather = async (

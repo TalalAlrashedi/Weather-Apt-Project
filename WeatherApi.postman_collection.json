@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "26b57724-e804-4352-ae36-a488cffb4c69",
+		"name": "WeatherApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31924264"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"test@example.com\",\n  \"password\": \"StrongP@ss123\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3002/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3002",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signin",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "history",
+			"item": [
+				{
+					"name": "GET ًًWeather",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODU3MGNiODMwZmNiODk3NjFkMzY3NmIiLCJpYXQiOjE3NTA1MzcyMjYsImV4cCI6MTc1MDU0MDgyNn0.JClX2SxYFsmghHxMC1CkHNyVOTSc2L5kou82TmNkjnQ\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/history",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"history"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET History",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODU3MGNiODMwZmNiODk3NjFkMzY3NmIiLCJpYXQiOjE3NTA1MzcyMjYsImV4cCI6MTc1MDU0MDgyNn0.JClX2SxYFsmghHxMC1CkHNyVOTSc2L5kou82TmNkjnQ\"",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/history",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"history"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -21,7 +21,7 @@ mongoose
   )
   .then(() => {
     console.log("✅ Connected to MongoDB Atlas");
-    app.listen(3002, () => {
+    app.listen(3000, () => {
       console.log("🚀 Server running on port 3000");
     });
   })
