@@ -11,4 +11,7 @@ router.post("/signin", (req: Request, res: Response, next: NextFunction) => {
   authController.signin(req, res).catch(next);
 });
 
+router.post("/signout", (req: Request, res: Response, next: NextFunction) => {
+  authController.signout(req, res).catch(next);
+});
 export default router;

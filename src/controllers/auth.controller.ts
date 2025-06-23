@@ -10,7 +10,10 @@ export const signup = async (req: Request, res: Response) => {
   if (!email || !password) {
     return res.status(400).json({
       success: false,
-      error: { code: "VALIDATION_ERROR", message: "Email and password are required." },
+      error: {
+        code: "VALIDATION_ERROR",
+        message: "Email and password are required.",
+      },
     });
   }
 
@@ -25,7 +28,9 @@ export const signup = async (req: Request, res: Response) => {
 
     const passwordHash = await bcrypt.hash(password, 12);
     const user = await User.create({ email, passwordHash });
-    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
 
     return res.status(201).json({ success: true, data: { token } });
   } catch (err) {
@@ -44,11 +49,16 @@ export const signin = async (req: Request, res: Response) => {
     if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
       return res.status(401).json({
         success: false,
-        error: { code: "INVALID_CREDENTIALS", message: "Invalid email or password." },
+        error: {
+          code: "INVALID_CREDENTIALS",
+          message: "Invalid email or password.",
+        },
       });
     }
 
-    const token = jwt.sign({ userId: user._id }, JWT_SECRET, { expiresIn: "1h" });
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
+      expiresIn: "1h",
+    });
     return res.json({ success: true, data: { token } });
   } catch (err) {
     return res.status(500).json({
@@ -56,4 +66,10 @@ export const signin = async (req: Request, res: Response) => {
       error: { code: "SERVER_ERROR", message: "Something went wrong." },
     });
   }
+};
+
+export const signout = async (req: Request, res: Response) => {
+  return res
+    .status(200)
+    .json({ success: true, message: "Signed out successfully." });
 };
