@@ -4,10 +4,13 @@ import mongoose from "mongoose";
 import authRouter from "./routes/auth.route";
 import weatherRouter from "./routes/weather.route";
 import historyRouter from "./routes/history.route";
+import cors from "cors";
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+
+app.use(cors());
 app.use(express.json());
 
 app.use("/history", historyRouter);
