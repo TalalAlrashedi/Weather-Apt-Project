@@ -6,6 +6,8 @@ import weatherRouter from "./routes/weather.route";
 import historyRouter from "./routes/history.route";
 dotenv.config();
 const app = express();
+const PORT = process.env.PORT || 3000;
+
 app.use(express.json());
 
 app.use("/history", historyRouter);
@@ -21,9 +23,9 @@ mongoose
   )
   .then(() => {
     console.log("✅ Connected to MongoDB Atlas");
-    app.listen(3000, () => {
-      console.log("🚀 Server running on port 3000");
-    });
+    app.listen(PORT, () => {
+      console.log(`🚀 Server running on port ${PORT}`);
+    })
   })
   .catch((err) => {
     console.error("❌ MongoDB connection error:", err);
